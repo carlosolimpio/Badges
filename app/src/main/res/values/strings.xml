@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Badges</string>
+    <string name="project">Projeto:</string>
+    <string name="badges">Badges</string>
+    <string name="rarity">Rarity:</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="user_image_description">User profile image</string>
+</resources>
