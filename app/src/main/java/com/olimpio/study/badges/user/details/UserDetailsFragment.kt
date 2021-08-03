@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.olimpio.study.badges.badges.BadgesAdapter
 import com.olimpio.study.badges.databinding.FragmentUserDetailsBinding
 import com.olimpio.study.badges.user.User
 
-class UserDetailsFragment(private val user: User) : Fragment() {
+class UserDetailsFragment() : Fragment() {
+    private lateinit var user: User
+    private val args: UserDetailsFragmentArgs by navArgs()
     private lateinit var binding: FragmentUserDetailsBinding
 
     override fun onCreateView(
@@ -24,6 +27,8 @@ class UserDetailsFragment(private val user: User) : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        user = args.user
         initUserDetails()
     }
 
@@ -38,13 +43,14 @@ class UserDetailsFragment(private val user: User) : Fragment() {
 
     private fun initBadgeList() {
         binding.apply {
-            rvBadgesList.layoutManager = LinearLayoutManager(activity)
-            rvBadgesList.adapter = BadgesAdapter(user.badgeList, setClickListener())
+            with (rvBadgesList) {
+                layoutManager = LinearLayoutManager(activity)
+                adapter = BadgesAdapter(user.badgeList, setClickListener())
+            }
         }
     }
 
     private fun setClickListener() = View.OnClickListener {
-        //(requireActivity() as MainActivity).setViewFragment(Badge())
         Toast.makeText(context, "badge clicked", Toast.LENGTH_SHORT).show()
     }
 }

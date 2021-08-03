@@ -4,14 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.olimpio.study.badges.databinding.UserCardInfoBinding
 import com.olimpio.study.badges.user.User
 
-class UserListAdapter(
-        private val userList: ArrayList<User>,
-        private val listener: (user: User) -> Unit
-) : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+class UserListAdapter() : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+
+    private lateinit var userList: ArrayList<User>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -26,6 +26,11 @@ class UserListAdapter(
 
     override fun getItemCount() = userList.size
 
+    fun setData(list: ArrayList<User>) {
+        userList = list
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(binding: UserCardInfoBinding) : RecyclerView.ViewHolder(binding.root) {
         private val userPicture: ImageView = binding.userPicture
         private val userName: TextView = binding.userName
@@ -37,7 +42,9 @@ class UserListAdapter(
             userProject.text = user.project
 
             itemView.setOnClickListener {
-                listener(user)
+                val direction =
+                    UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(user)
+                itemView.findNavController().navigate(direction)
             }
         }
     }

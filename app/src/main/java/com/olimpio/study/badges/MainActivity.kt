@@ -2,32 +2,25 @@ package com.olimpio.study.badges
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.olimpio.study.badges.databinding.ActivityMainBinding
-import com.olimpio.study.badges.user.list.UserListFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setMainView()
+        navController = this.findNavController(R.id.navHostFragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
     }
 
-    private fun setMainView() {
-        setViewFragment(UserListFragment())
-    }
-
-    fun setViewFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(binding.fragmentContainer.id, fragment)
-            addToBackStack(null)
-            commit()
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp()
     }
 }
