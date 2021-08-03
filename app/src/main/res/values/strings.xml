@@ -6,4 +6,7 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="user_image_description">User profile image</string>
+    <string name="about">About</string>
+    <string name="more">More</string>
+    <string name="app_description">Badges is an app developed aiming to train for the AAD - Associate Android Developer - Certification.</string>
 </resources>
