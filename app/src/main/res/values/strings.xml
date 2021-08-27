@@ -9,4 +9,6 @@
     <string name="about">About</string>
     <string name="more">More</string>
     <string name="app_description">Badges is an app developed aiming to train for the AAD - Associate Android Developer - Certification.</string>
+    <string name="my_badges">My Badges</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>

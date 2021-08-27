@@ -1,4 +1,6 @@
-package com.olimpio.study.badges.badges
+package com.olimpio.study.badges.user.badges
+
+import java.io.Serializable
 
 data class Badge(
         var id: Int,
@@ -8,4 +10,4 @@ data class Badge(
         var description: String,
         var requisites: String,
         var picture: Int
-)
+) : Serializable

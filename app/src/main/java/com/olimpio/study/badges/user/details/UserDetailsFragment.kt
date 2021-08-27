@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.olimpio.study.badges.badges.BadgesAdapter
+import com.olimpio.study.badges.user.badges.BadgesAdapter
 import com.olimpio.study.badges.databinding.FragmentUserDetailsBinding
 import com.olimpio.study.badges.user.User
 
@@ -44,7 +45,7 @@ class UserDetailsFragment() : Fragment() {
     private fun initBadgeList() {
         binding.apply {
             with (rvBadgesList) {
-                layoutManager = LinearLayoutManager(activity)
+                layoutManager = GridLayoutManager(activity, 2)
                 adapter = BadgesAdapter(user.badgeList, setClickListener())
             }
         }

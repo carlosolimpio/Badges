@@ -1,4 +1,4 @@
-package com.olimpio.study.badges.badges
+package com.olimpio.study.badges.user.badges
 
 import android.view.LayoutInflater
 import android.view.View

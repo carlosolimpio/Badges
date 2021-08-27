@@ -2,7 +2,7 @@ package com.olimpio.study.badges.user
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import com.olimpio.study.badges.badges.Badge
+import com.olimpio.study.badges.user.badges.Badge
 import kotlinx.android.parcel.RawValue
 
 @Parcelize

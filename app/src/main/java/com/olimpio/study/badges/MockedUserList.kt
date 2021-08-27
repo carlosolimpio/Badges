@@ -1,6 +1,6 @@
 package com.olimpio.study.badges
 
-import com.olimpio.study.badges.badges.Badge
+import com.olimpio.study.badges.user.badges.Badge
 import com.olimpio.study.badges.user.User
 
 class MockedUserList {
